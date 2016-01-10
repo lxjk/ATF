@@ -884,8 +884,11 @@ namespace Sce.Atf.Dom
                 return false;
 
             for (int i = 0; i < array1.Length; i++)
-                if (!array1[i].Equals(array2[i]))
+            //@FRAMEWORK MODIFICATION BEGIN
+                if ((array1[i] == null && array2[i] != null) ||
+                    (array1[i] != null && !array1[i].Equals(array2[i])))
                     return false;
+            //@FRAMEWORK MODIFICATION END
 
             return true;
         }
